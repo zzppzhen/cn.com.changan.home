@@ -2,6 +2,7 @@ package cn.com.changan.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.JsonReader;
 import android.util.Log;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Map<String,Object> map = new HashMap<>();
         map.put("sort","asc:");
         map.put("page","1");
-        String url = "www.baidu.com";
+        String url = "http://www.baidu.com";
         HttpUtil.postOKHttp(url, map, new HttpUtil.HttpCallBack() {
             @Override
             public void onFail(String error) {
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Map<String,Object> map = new HashMap<>();
 //        map.put("sort","asc:");
 //        map.put("page","1");
-        String url = "www.baidu.com";
+        String url = "http://www.baidu.com";
         HttpUtil.getOKHttp(url, map, new HttpUtil.HttpCallBack() {
             @Override
             public void onFail(String error) {
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(String string, Class<ResultData> resultDataClass) {
-                Log.d("JenActivity", "onFail: 访问成功");
+                Log.d("JenActivity", "onSuccess: 访问成功");
 
             }
         });
