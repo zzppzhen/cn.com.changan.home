@@ -19,7 +19,6 @@ public class MyViewGroup extends ViewGroup {
 
     private int leftMargin = 5;   //每个子View间的左边间距
     private int toptMargin = 5;   //每个子View间的与上面子View的间距
-    private OnTextClickListener textListener;
 
 
     public MyViewGroup(Context context) {
@@ -169,7 +168,7 @@ public class MyViewGroup extends ViewGroup {
                 currentRight += width;
 
                 if (currentRight > (getMeasuredWidth() - leftMargin - getPaddingRight())) {
-                    Log.e("TAG-------------", "asdasd");
+
                     currentRight = getMeasuredWidth() - leftMargin - getPaddingRight();
                 }
                 //为子View排放位置
@@ -178,24 +177,11 @@ public class MyViewGroup extends ViewGroup {
                 currentLeft = currentRight + leftMargin;
                 currentRight += leftMargin;
             }
-
             currentLeft = leftMargin + getPaddingLeft();
             currentRight = leftMargin + getPaddingLeft();
             currentTop += getChildAt(0).getMeasuredHeight() + toptMargin;
             currentBottom += fristChild.getMeasuredHeight() + toptMargin;
 
         }
-    }
-
-    //-------设置监听-----
-    public void setOnTextListener(OnTextClickListener textListener) {
-        this.textListener = textListener;
-    }
-
-    ;
-
-    //-------监听接口-----
-    public interface OnTextClickListener {
-        void getItemTextContext(View view, String text);
     }
 }

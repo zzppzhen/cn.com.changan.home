@@ -44,7 +44,6 @@ public class TestActivity extends AppCompatActivity {
 
         test = findViewById(R.id.vg_test);
 
-
         ll_picture = findViewById(R.id.takepicture);
         iv_picture = findViewById(R.id.camera_photo);
 
@@ -57,7 +56,7 @@ public class TestActivity extends AppCompatActivity {
             }
         });
         //设置默认图片
-        setDefualtImage();
+//        setDefualtImage();
     }
 
     private void requestPermission() {
@@ -136,6 +135,7 @@ public class TestActivity extends AppCompatActivity {
 //                        iv_picture.setImageBitmap(bitmap);
                         test.setVisibility(View.VISIBLE);
 
+
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -151,6 +151,7 @@ public class TestActivity extends AppCompatActivity {
         if (!outputImage.exists()) {
             return;
         }
+
         iv_picture.setImageBitmap(BitmapFactory.decodeFile(filePath));
     }
 

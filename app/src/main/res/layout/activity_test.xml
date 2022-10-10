@@ -7,16 +7,17 @@
     android:orientation="horizontal"
     tools:context=".TestActivity">
         <cn.com.changan.home.MyViewGroup
-            android:layout_marginTop="20dp"
+
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/vg_test"
             android:visibility="gone"/>
         <LinearLayout
             android:id="@+id/takepicture"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="5dp"
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:background="#DFDBDB">
