@@ -134,6 +134,7 @@ public class TestActivity extends AppCompatActivity {
                         list.add(bitmap);
                         test.setView(list);
 //                        iv_picture.setImageBitmap(bitmap);
+                        test.setVisibility(View.VISIBLE);
 
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();

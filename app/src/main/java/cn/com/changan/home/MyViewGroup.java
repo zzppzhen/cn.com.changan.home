@@ -64,10 +64,10 @@ public class MyViewGroup extends ViewGroup {
     //添加子View
     public void setView(List<Bitmap> list) {
         mData = new ArrayList<Bitmap>();
-        mData.clear();
+//        mData.clear();
         mData.addAll(list);
         //先清空原来的内容
-        removeAllViews();
+//        removeAllViews();
         for (Bitmap data : list) {
             ImageView imageView=new ImageView(getContext());
             imageView.setImageBitmap(data);
@@ -124,7 +124,7 @@ public class MyViewGroup extends ViewGroup {
                     newLine = new ArrayList<>();
                     mLines.add(newLine);
                 }
-                newLine.add(childAt);
+//                newLine.add(childAt);
             }
         }
         //根据尺寸j计算所有行高
@@ -167,8 +167,7 @@ public class MyViewGroup extends ViewGroup {
                 int width = child.getMeasuredWidth();
 
                 currentRight += width;
-                Log.e("TAG-------------", "" + currentRight + "----------" + width);
-                Log.e("TAG-------------", "" + (getMeasuredWidth() - leftMargin));
+
                 if (currentRight > (getMeasuredWidth() - leftMargin - getPaddingRight())) {
                     Log.e("TAG-------------", "asdasd");
                     currentRight = getMeasuredWidth() - leftMargin - getPaddingRight();
