@@ -8,6 +8,8 @@ import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import org.json.JSONObject;
 
@@ -21,19 +23,22 @@ import okhttp3.OkHttpClient;
 public class MainActivity extends AppCompatActivity {
     private Button button;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         button = findViewById(R.id.button);
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initData1();
+                Intent intent = new Intent(MainActivity.this,PhotoActivity.class);
+                startActivity(intent);
             }
         });
-        initData2();
     }
 
     private void initData2() {
