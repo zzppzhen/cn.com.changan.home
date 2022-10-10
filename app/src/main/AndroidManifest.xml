@@ -20,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeJob">
         <activity
+            android:name=".TestActivity"
+            android:exported="true" />
+        <activity
             android:name=".PhotoActivity"
             android:exported="true" />
         <activity
