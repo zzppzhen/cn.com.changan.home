@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -49,6 +50,7 @@ import cn.com.changan.huaxian.R;
  * create an instance of this fragment.
  */
 public class ParkingFragment extends Fragment implements View.OnClickListener{
+    private static final String TAG = "ParkingFragment";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,7 +65,7 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
     public static final int TAKE_PHOTO = 1;//声明一个请求码，用于识别返回的结果
     private ImageView picture;
     private Uri imageUri;
-    private final String filePath = Environment.getExternalStorageDirectory() + File.separator + "output_image.jpg";
+    private final String filePath = Environment.getExternalStorageDirectory() + File.separator+"Download"+ File.separator+ "incall"+ File.separator+ "output_image.jpg";
     private ViewGroup imgViewGroup;
     private ArrayList<Bitmap> imgList = new ArrayList<>();
     private ArrayList<View> deleteList = new ArrayList<>();
@@ -150,14 +152,17 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
     //动态请求权限
     private void requestPermission(int i) {
         type = i;
+        Log.d(TAG, "requestPermission I = "+i);
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             //请求权限
             ActivityCompat.requestPermissions((Activity) getContext(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1);
+            Log.d(TAG, "请求权限");
         } else {
             //调用
             if(i==SCAN){
                 Intent intent = new Intent(getContext(), CaptureActivity.class);
                 startActivityForResult(intent, REQUEST_CODE);
+                Log.d(TAG, "打开CaptureActivity");
             }else {
                 requestCamera();
             }
@@ -185,6 +190,7 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
     }
 
     private void requestCamera() {
+        Log.d(TAG, "requestCamera filePath="+filePath);
         File outputImage = new File(filePath);
         try
         {

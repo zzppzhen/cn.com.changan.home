@@ -42,7 +42,7 @@
                 android:layout_marginLeft="@dimen/size_12dp"
                 android:gravity="center"
                 android:text="车架号"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -54,10 +54,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/size_80dp"
                 android:layout_marginRight="@dimen/size_40dp"
-                android:gravity="center"
                 android:text=""
                 android:background="@color/white"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_16sp"
                 app:layout_constraintLeft_toRightOf="@+id/vin_title" />
 
@@ -90,7 +89,7 @@
                 android:layout_marginLeft="@dimen/size_12dp"
                 android:gravity="center"
                 android:text="位置"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -103,7 +102,7 @@
                 android:layout_marginLeft="@dimen/size_26dp"
                 android:gravity="center"
                 android:text="hadhahwdha"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_16sp"
                 app:layout_constraintLeft_toRightOf="@+id/position_title" />
 
@@ -127,7 +126,7 @@
                 android:layout_marginLeft="@dimen/size_12dp"
                 android:gravity="center"
                 android:text="仓库"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -140,7 +139,7 @@
                 android:layout_marginLeft="@dimen/size_26dp"
                 android:gravity="center"
                 android:text="hadhahwdha"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_16sp"
                 app:layout_constraintLeft_toRightOf="@+id/warehouse_title" />
 
@@ -173,7 +172,7 @@
                 android:layout_marginLeft="@dimen/size_12dp"
                 android:gravity="center"
                 android:text="拍照"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -197,7 +196,7 @@
                 android:id="@+id/take_photo_btn"
                 android:layout_width="@dimen/size_88dp"
                 android:layout_height="@dimen/size_88dp"
-                android:background="@color/gray"
+                android:background="@color/gray_f2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/img_viewgroup"
                 app:layout_constraintTop_toTopOf="parent">
@@ -228,7 +227,7 @@
                 android:layout_marginLeft="@dimen/size_12dp"
                 android:gravity="center"
                 android:text="描述"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_14sp" />
 
             <EditText
@@ -239,7 +238,7 @@
                 android:hint="非必填"
                 android:textColorHint="@color/second_class_text"
                 android:background="@color/transparent"
-                android:textColor="@color/first_class_text"
+                android:textColor="@color/edit_text_2"
                 android:textSize="@dimen/size_16sp"
                 android:layout_marginLeft="@dimen/size_26dp"
                 app:layout_constraintLeft_toRightOf="@+id/descri_title" />
