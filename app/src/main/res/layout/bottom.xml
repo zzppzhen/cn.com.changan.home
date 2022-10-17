@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/id_tab1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <!--<ImageButton
+            android:id="@+id/id_tab_img1"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon1"
+            android:background="#00000000"/>-->
+        <TextView
+            android:id="@+id/tv_parking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#A6A6A6"
+            android:text="停车"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/id_tab2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!-- <ImageButton
+             android:id="@+id/id_tab_img2"
+             android:clickable="false"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/icon2"
+             android:background="#00000000"/>-->
+         <TextView
+             android:id="@+id/tv_finding"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textColor="#A6A6A6"
+             android:text="寻车"/>
+     </LinearLayout>
+
+ </LinearLayout>

@@ -1,3 +1,40 @@
 <resources>
-    <string name="app_name">HomeJob</string>
+    <string name="app_name">hua_xian_app</string>
+
+    <!--登录-->
+    <string name="accman_title_app">滑线车辆</string>
+    <string name="accman_tel_number">请输入手机号</string>
+    <string name="accman_right_number">请输入正确的手机号</string>
+    <string name="accman_verification_code">请输入验证码</string>
+    <string name="accman_get_code">获取验证码</string>
+    <string name="accman_login">登录</string>
+    <!--EditText限制只能输入数字-->
+    <string name="accman_editext_input_phone">0123456789</string>
+
+    <!--停车-->
+    <string name="parking_title_tab">停车</string>
+    <string name="parking_car_vin">车架号</string>
+    <string name="parking_car_location">位置</string>
+    <string name="parking_car_warehouse">仓库</string>
+    <string name="parking_take_photo">拍照</string>
+    <string name="parking_describe">描述</string>
+    <string name="parking_commit">提交</string>
+    <string name="parking_relation">请输入停车相关信息</string>
+    <string name="parking_auo_positioning">自动定位</string>
+    <string name="parking_manual_positioning">手动定位</string>
+
+    <!--寻车-->
+    <string name="finding_title_tab">寻车</string>
+    <string name="finding_title_top">输入车架号查询停放车辆</string>
+    <string name="finding_title_searching">搜索</string>
+    <string name="finding_no_car">未找到相关车辆</string>
+
+    <!--我的-->
+    <string name="accman_title_name">xxx，你好</string>
+    <string name="accman_my_car">我停放的车</string>
+    <string name="accman_car_detail">车辆详情</string>
+    <string name="accman_exit">退出登录</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

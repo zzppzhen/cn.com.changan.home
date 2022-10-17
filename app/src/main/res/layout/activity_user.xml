@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".huaxian.Activity.useractivity.UserActivity"
+    android:background="@color/bg_system">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/user_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_320dp"
+        android:background="@color/bg_default"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        
+        <ImageView
+            android:id="@+id/user_head_img"
+            android:layout_width="@dimen/size_120dp"
+            android:layout_height="@dimen/size_120dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名称"
+            app:layout_constraintTop_toBottomOf="@+id/user_head_img"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/size_16dp"
+            android:textSize="@dimen/size_18sp"
+            android:textColor="@color/first_class_text"/>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <RelativeLayout
+        android:id="@+id/my_parking_car"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_44dp"
+        app:layout_constraintTop_toBottomOf="@+id/user_container"
+        android:layout_marginTop="@dimen/size_8dp"
+        android:background="@color/bg_default">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="我停放的车"
+            android:textColor="@color/first_class_text"
+            android:layout_gravity="left"
+            android:gravity="center"/>
+        
+        <ImageView
+            android:layout_width="@dimen/size_5dp"
+            android:layout_height="@dimen/size_10dp"
+            android:background="@drawable/ic_right_more_black"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/size_10dp"/>
+        
+    </RelativeLayout>
+    
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="@dimen/size_8dp"
+        android:layout_height="@dimen/size_16dp"
+        android:background="@drawable/ic_back_black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/size_16dp"
+        android:layout_marginTop="@dimen/size_16dp"/>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

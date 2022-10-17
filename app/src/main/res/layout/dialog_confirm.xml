@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/corner_white_bg"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_title_margin"
+        android:gravity="center"
+        android:text="温馨提示"
+        android:textColor="@color/first_class_text"
+        android:textSize="@dimen/dialog_title_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="@dimen/dialog_title_margin"
+        android:layout_marginEnd="10dp"
+        android:background="@color/dialog_content" />
+
+    <TextView
+        android:id="@+id/dialog_content_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_content_tb_margin"
+        android:layout_weight="1"
+        android:fadeScrollbars="true"
+        android:gravity="center"
+        android:lineSpacingExtra="5dp"
+        android:paddingLeft="@dimen/dialog_content_lr_margin"
+        android:paddingRight="@dimen/dialog_content_lr_margin"
+        android:scrollbars="vertical"
+        android:text="长安incall"
+        android:textColor="@color/dialog_content"
+        android:textSize="@dimen/dialog_content_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="@dimen/dialog_content_tb_margin"
+        android:layout_marginEnd="10dp"
+        android:background="@color/dialog_content" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/unacceptbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dialog_btn_tb_margin"
+            android:text="继续退出"
+            android:textColor="@color/not_valuable_text"
+            android:textSize="@dimen/dialog_btn_cancle_size"
+            app:layout_constraintEnd_toEndOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/acceptbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dialog_btn_tb_margin"
+            android:text="知道了"
+            android:textColor="@color/theme_blue"
+            android:textSize="@dimen/dialog_btn_ok_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0.8dp"
+            android:layout_height="20dp"
+            android:background="@color/dialog_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
+

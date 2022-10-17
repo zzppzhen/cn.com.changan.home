@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--点击按钮时候的样式-->
+<!--    <item android:state_pressed="true">-->
+        <shape>
+        <!-- 按钮颜色 -->
+        <solid android:color="#1EAED6" />
+        <!-- 设置弧度 -->
+        <corners android:radius="20dp" />
+        </shape>
+<!--    </item>-->
+<!--    !&#45;&#45;点击不按钮时候的样式&ndash;&gt;-->
+<!--    <item android:state_pressed="false">-->
+<!--        <shape>-->
+<!--            &lt;!&ndash; 按钮颜色 &ndash;&gt;-->
+<!--            <solid android:color="#999999" />-->
+<!--            &lt;!&ndash; 设置弧度 &ndash;&gt;-->
+<!--            <corners android:radius="20dp" />-->
+<!--        </shape>-->
+<!--    </item>-->
+
+
+
+</selector>
