@@ -12,7 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -53,6 +55,11 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 	private String nowFragmen = SEARCH_FRAG;
 	private List<Fragment> mFragments = new ArrayList<>();
 
+	private ImageView ivParkingTab;
+	private TextView tvParkingTab;
+	private ImageView ivSearchTab;
+	private TextView tvSearchTab;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +67,11 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 		setContentView(R.layout.basicmap_activity);
 
 		ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(true).init();
+
+		ivParkingTab = findViewById(R.id.iv_parking_tab);
+		tvParkingTab = findViewById(R.id.tv_parking_tab);
+		ivSearchTab = findViewById(R.id.iv_search_tab);
+		tvSearchTab = findViewById(R.id.tv_search_tab);
 
 		parkingBtn = findViewById(R.id.parking_selector);
 		searchBtn = findViewById(R.id.searching_selector);
@@ -92,6 +104,10 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.searching_selector:
+//				ivParkingTab.setImageResource(R.mipmap.ic_parking_tab_select);
+//				tvParkingTab.setTextColor(getResources().getColor(R.color.theme_blue));
+//				ivSearchTab.setImageResource(R.mipmap.ic_parking_tab_select);
+//				tvSearchTab.setTextColor(getResources().getColor(R.color.theme_blue));
 				hideOthersFragment(searchFragment,false);
 				break;
 			case R.id.parking_selector:
