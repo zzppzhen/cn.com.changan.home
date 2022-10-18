@@ -20,10 +20,35 @@
         android:src="@mipmap/ic_head"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="@dimen/size_56dp"
+        android:layout_marginTop="@dimen/size_50dp"
         android:layout_marginLeft="@dimen/size_16dp"/>
-    
     <LinearLayout
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll_content"
+        android:layout_marginRight="@dimen/size_12dp"
+        android:layout_marginBottom="@dimen/size_16dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:layout_width="@dimen/size_165dp"
+        android:layout_height="@dimen/size_36dp">
+    <TextView
+        android:id="@+id/tv_manually_locate"
+        android:text="手动定位"
+        android:gravity="center"
+        android:textColor="@color/third_class_text"
+        android:layout_width="@dimen/size_80dp"
+        android:layout_height="@dimen/size_32dp"/>
+    <TextView
+        android:id="@+id/tv_auto_locate"
+        android:text="自动定位"
+        android:gravity="center"
+        android:background="@drawable/bg_locate_blue"
+        android:textColor="@color/white"
+        android:layout_width="@dimen/size_80dp"
+        android:layout_height="@dimen/size_32dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -65,7 +90,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginRight="@dimen/size_12dp"
-                android:background="@drawable/scan"
+                android:background="@mipmap/ic_scan"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -101,7 +126,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/size_26dp"
                 android:gravity="center"
-                android:text="hadhahwdha"
+                android:text="重庆市渝北区仙桃数据谷C12"
                 android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_16sp"
                 app:layout_constraintLeft_toRightOf="@+id/position_title" />
@@ -138,7 +163,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/size_26dp"
                 android:gravity="center"
-                android:text="hadhahwdha"
+                android:text="重庆市渝北区仙桃数据谷C12"
                 android:textColor="@color/edit_text"
                 android:textSize="@dimen/size_16sp"
                 app:layout_constraintLeft_toRightOf="@+id/warehouse_title" />

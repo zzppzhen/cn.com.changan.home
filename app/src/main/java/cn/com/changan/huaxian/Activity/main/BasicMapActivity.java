@@ -104,13 +104,17 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.searching_selector:
-//				ivParkingTab.setImageResource(R.mipmap.ic_parking_tab_select);
-//				tvParkingTab.setTextColor(getResources().getColor(R.color.theme_blue));
-//				ivSearchTab.setImageResource(R.mipmap.ic_parking_tab_select);
-//				tvSearchTab.setTextColor(getResources().getColor(R.color.theme_blue));
+				ivParkingTab.setImageResource(R.mipmap.ic_parking_tab_gray);
+				tvParkingTab.setTextColor(getResources().getColor(R.color.third_class_text));
+				ivSearchTab.setImageResource(R.mipmap.ic_search_tab_blue);
+				tvSearchTab.setTextColor(getResources().getColor(R.color.tab_select));
 				hideOthersFragment(searchFragment,false);
 				break;
 			case R.id.parking_selector:
+				ivParkingTab.setImageResource(R.mipmap.ic_parking_tab_select);
+				tvParkingTab.setTextColor(getResources().getColor(R.color.tab_select));
+				ivSearchTab.setImageResource(R.mipmap.ic_search_tab_gray);
+				tvSearchTab.setTextColor(getResources().getColor(R.color.third_class_text));
 				hideOthersFragment(parkingFragment,false);
 				break;
 		}
@@ -130,7 +134,7 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 				transaction.hide(fragment);
 			}
 		}
-		transaction.commit();
+		transaction.commitNowAllowingStateLoss();
 	}
 
 	private void showMyLoc(){
