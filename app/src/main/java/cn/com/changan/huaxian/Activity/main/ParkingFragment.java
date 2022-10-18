@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.LongDef;
@@ -77,6 +78,7 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
     private static final int SCAN = 0;
     private static final int SEARCH = 1;
     private int type = 0;
+    private TextView tvManuallyLocate,tvAutoLocate ;
 
     //头像
     private ImageView headImg;
@@ -120,6 +122,11 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.submit_layout, container, false);
 
+        tvManuallyLocate = view.findViewById(R.id.tv_manually_locate);
+        tvManuallyLocate.setOnClickListener(this);
+        tvAutoLocate = view.findViewById(R.id.tv_auto_locate);
+        tvAutoLocate.setOnClickListener(this);
+
         takePhoto = view.findViewById(R.id.take_photo_btn);
         takePhoto.setOnClickListener(this);
         imgViewGroup = view.findViewById(R.id.img_viewgroup);
@@ -136,6 +143,20 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.tv_manually_locate:
+                //手动定位
+                tvManuallyLocate.setBackgroundResource(R.drawable.bg_locate_blue);
+                tvManuallyLocate.setTextColor(getResources().getColor(R.color.white));
+                tvAutoLocate.setBackgroundResource(R.color.white);
+                tvAutoLocate.setTextColor(getResources().getColor(R.color.third_class_text));
+                break;
+            case R.id.tv_auto_locate:
+                //自动定位
+                tvAutoLocate.setBackgroundResource(R.drawable.bg_locate_blue);
+                tvAutoLocate.setTextColor(getResources().getColor(R.color.white));
+                tvManuallyLocate.setBackgroundResource(R.color.white);
+                tvManuallyLocate.setTextColor(getResources().getColor(R.color.third_class_text));
+                break;
             case R.id.take_photo_btn:
                 requestPermission(SEARCH);
                 break;

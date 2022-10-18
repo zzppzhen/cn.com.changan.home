@@ -297,5 +297,8 @@
     <color name="edit_text">#323333</color>
     <color name="edit_text_2">#919294</color>
     <color name="gray_f2">#f2f2f2</color>
+    <color name="tab_select">#3488FD</color>
+    <color name="search_frame">#EDEDEE</color>
+    <color name="search_hint_text">#959698</color>
 
 </resources>
