@@ -248,6 +248,9 @@
     <color name="prerelease_font_gray_color">#e9e9e9</color>
     <color name="send_to_car_color">#ebebeb</color>
     <color name="transparent_30">#4cffffff</color>
+    <color name="after_send_code">#919294</color>
+    <color name="before_send_code">#2a82fd</color>
+
 
     <!--    主题色-->
     <color name="theme_blue">#2a82fd</color>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".huaxian.Activity.useractivity.UserActivity"
+    tools:context=".Activity.useractivity.UserActivity"
     android:background="@color/bg_system">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +23,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:src="@mipmap/ic_head"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -72,5 +73,19 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="@dimen/size_16dp"
         android:layout_marginTop="@dimen/size_16dp"/>
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="@dimen/size_32dp"
+        android:layout_marginEnd="@dimen/size_32dp"
+        android:layout_marginBottom="@dimen/size_30dp"
+        android:text="退出登录"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:background="@drawable/bg_radius_account_shape_login"
+        />
+
     
 </androidx.constraintlayout.widget.ConstraintLayout>
