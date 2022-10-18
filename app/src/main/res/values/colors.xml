@@ -257,6 +257,7 @@
     <color name="warning_ora">#FFB30F</color>
     <!--   消息色-->
     <color name="info_blue">#17A2FF</color>
+    <color name="info_bac">#e9f2fe</color>
     <!--   成功色-->
     <color name="success_green">#7FAE1B</color>
     <!--  反转色？？-->

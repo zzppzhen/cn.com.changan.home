@@ -7,6 +7,8 @@ public class ProjectConfig {
 
     public static final String LOGIN = BASE_URL+"/app-apigw/trolleyCar/public/api/v1/app/check/login";
 
+    public static final String GET_CAR_LIST = BASE_URL+"/app-apigw/trolleyCar/api/v1/app/bus/getStopCarByMyList";
+
     public static class AccessSource {
         public static final String HEADER_NAME = "vcs-app-id";
 

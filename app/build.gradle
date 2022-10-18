@@ -91,4 +91,8 @@ dependencies {
     implementation 'cn.yipianfengye.android:zxing-library:2.2'
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
 //    implementation 'com.github.bingoogolapple.BGAQRCode-Android:zxing:latestVersion'
+
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'    //经典加载
+    implementation  'io.github.scwang90:refresh-header-classics:2.0.5'
 }
