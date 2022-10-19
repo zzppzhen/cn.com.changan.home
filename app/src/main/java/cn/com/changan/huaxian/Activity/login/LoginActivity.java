@@ -132,14 +132,27 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
             sendVerifyCode();
             mobile = input;
             countDownTime();
-        }else if (id == R.id.accman_login){
-            String confirmCode = editCode.getText().toString();
-            if (confirmCode.length()!=6){
-                Toast.makeText(context, "验证码输入错误", Toast.LENGTH_LONG).show();
-            }else {
-                controlAuth(confirmCode);
-
+        }else if (id == R.id.accman_login) {
+            if (input.length() < 1) {
+                Toast.makeText(context, "请输入手机号", Toast.LENGTH_LONG).show();
+            } else {
+                if (input.length() != 11) {
+                    Toast.makeText(context, "请输入正确的手机号", Toast.LENGTH_LONG).show();
+                }
             }
+            if (input.length()==11){
+                String confirmCode = editCode.getText().toString();
+                if (confirmCode.length()!=6){
+                    if (confirmCode.length()<1){
+                        Toast.makeText(context, "请输入验证码", Toast.LENGTH_LONG).show();
+                    }else {
+                        Toast.makeText(context, "验证长度需等于6位", Toast.LENGTH_LONG).show();
+                    }
+                }else {
+                    controlAuth(confirmCode);
+                }
+            }
+
         }
     }
     /**
@@ -184,6 +197,8 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
                     String msg = jsonObject.optString("msg");
                     if (code == 0){
                         LoginActivity.this.startActivity(new Intent(LoginActivity.this,BasicMapActivity.class));
+                    }else {
+                        Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
                     }
 
                 } catch (JSONException e) {
@@ -216,7 +231,6 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
                     String msg = jsonObject.optString("msg");
                     if(code == 0){
                         Toast.makeText(context,msg,Toast.LENGTH_LONG).show();
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
