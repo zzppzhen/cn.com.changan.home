@@ -55,14 +55,16 @@
             android:layout_width="@dimen/size_48dp"
             android:layout_height="@dimen/size_32dp"
             android:layout_marginStart="@dimen/size_121dp"
+            android:layout_marginEnd="@dimen/size_121dp"
             android:text="知道了"
             android:gravity="center"
             android:layout_marginTop="7.5dp"
             android:textColor="@color/dialog_btn_ok"
             android:textSize="@dimen/dialog_btn_ok_size"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

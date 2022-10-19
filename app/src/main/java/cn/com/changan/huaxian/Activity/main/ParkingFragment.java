@@ -47,6 +47,8 @@ import java.util.ArrayList;
 import cn.com.changan.huaxian.Activity.useractivity.UserActivity;
 import cn.com.changan.huaxian.R;
 import cn.com.changan.huaxian.tools.WareHouseListener;
+import cn.com.changan.huaxian.util.ConfirmCallable;
+import cn.com.changan.huaxian.util.ConfirmUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -269,12 +271,19 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
                         imgDeleteBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-
-                                imgList.remove(deleteList.indexOf(imgDeleteBtn));
-                                imgViewGroup.removeViewAt(deleteList.indexOf(imgDeleteBtn));
-                                deleteList.remove(deleteList.indexOf(imgDeleteBtn));
-                                Log.d("takephoto","index is "+deleteList.indexOf(imgDeleteBtn));
-
+                                ConfirmUtils utils = new ConfirmUtils();
+                                utils.showSingleConfirmDialog(getContext(), "温馨提示", "将删除此照片，是否确定？", "知道了", new ConfirmCallable() {
+                                    @Override
+                                    public void unaccept() {
+                                    }
+                                    @Override
+                                    public void accept() {
+                                        imgList.remove(deleteList.indexOf(imgDeleteBtn));
+                                        imgViewGroup.removeViewAt(deleteList.indexOf(imgDeleteBtn));
+                                        deleteList.remove(deleteList.indexOf(imgDeleteBtn));
+                                        Log.d("takephoto","index is "+deleteList.indexOf(imgDeleteBtn));
+                                    }
+                                });
                             }
                         });
                         picture.setImageBitmap(extract(bitmap));

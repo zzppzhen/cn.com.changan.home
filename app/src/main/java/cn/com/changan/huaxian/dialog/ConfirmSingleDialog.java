@@ -71,18 +71,18 @@ public class ConfirmSingleDialog extends Dialog implements View.OnClickListener 
             dismiss();
         }
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ScreenUtil.getDeviceSize(getContext());
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-//        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        ScreenUtil.getDeviceSize(getContext());
+//        WindowManager.LayoutParams params = getWindow().getAttributes();
+////        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+////        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+//        params.width = ScreenUtil.SCREEN_WIDTH * 2 / 3;
 //        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        params.width = ScreenUtil.SCREEN_WIDTH * 2 / 3;
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        params.gravity = Gravity.CENTER;
-        getWindow().setAttributes(params);
-    }
+//        params.gravity = Gravity.CENTER;
+//        getWindow().setAttributes(params);
+//    }
     @Override
     public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
         if ((event.getAction() == KeyEvent.ACTION_DOWN) && (event.getKeyCode() == KeyEvent.KEYCODE_BACK)) {
