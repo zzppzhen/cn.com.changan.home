@@ -3,16 +3,22 @@ package cn.com.changan.huaxian.Activity.main;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -32,6 +38,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.changan.huaxian.R;
+import cn.com.changan.huaxian.util.ConfirmCallable;
+import cn.com.changan.huaxian.util.ConfirmUtils;
 
 
 /**
@@ -53,6 +61,11 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 	private String nowFragmen = SEARCH_FRAG;
 	private List<Fragment> mFragments = new ArrayList<>();
 
+	private ImageView ivParkingTab;
+	private TextView tvParkingTab;
+	private ImageView ivSearchTab;
+	private TextView tvSearchTab;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +73,11 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 		setContentView(R.layout.basicmap_activity);
 
 		ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(true).init();
+
+		ivParkingTab = findViewById(R.id.iv_parking_tab);
+		tvParkingTab = findViewById(R.id.tv_parking_tab);
+		ivSearchTab = findViewById(R.id.iv_search_tab);
+		tvSearchTab = findViewById(R.id.tv_search_tab);
 
 		parkingBtn = findViewById(R.id.parking_selector);
 		searchBtn = findViewById(R.id.searching_selector);
@@ -92,12 +110,45 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.searching_selector:
+				ivParkingTab.setImageResource(R.mipmap.ic_parking_tab_gray);
+				tvParkingTab.setTextColor(getResources().getColor(R.color.third_class_text));
+				ivSearchTab.setImageResource(R.mipmap.ic_search_tab_blue);
+				tvSearchTab.setTextColor(getResources().getColor(R.color.tab_select));
 				hideOthersFragment(searchFragment,false);
+				//判断位置服务是否开启
+				LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+				boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+				if (!gps){
+					openSystemGPS();
+				}
+
 				break;
 			case R.id.parking_selector:
+				ivParkingTab.setImageResource(R.mipmap.ic_parking_tab_select);
+				tvParkingTab.setTextColor(getResources().getColor(R.color.tab_select));
+				ivSearchTab.setImageResource(R.mipmap.ic_search_tab_gray);
+				tvSearchTab.setTextColor(getResources().getColor(R.color.third_class_text));
 				hideOthersFragment(parkingFragment,false);
 				break;
 		}
+	}
+
+	private void openSystemGPS() {
+		ConfirmUtils utils = new ConfirmUtils();
+		utils.showConfirmDialog(this, "需要打开系统定位开关", "用于提供精确的定位服务", "取消", "去设置", new ConfirmCallable() {
+			@Override
+			public void unaccept() {
+
+			}
+
+			@Override
+			public void accept() {
+				Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+				startActivity(intent);
+
+			}
+		});
+
 	}
 
 
@@ -114,7 +165,7 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 				transaction.hide(fragment);
 			}
 		}
-		transaction.commit();
+		transaction.commitNowAllowingStateLoss();
 	}
 
 	private void showMyLoc(){

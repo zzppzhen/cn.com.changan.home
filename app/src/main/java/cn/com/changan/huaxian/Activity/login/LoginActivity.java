@@ -44,8 +44,7 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
     //输入电话
     private String input = "";
     private String mobile;
-    //倒计时
-    protected int mCurrentTimeCount = -1;
+
 
     private View jumpMap;
 
@@ -86,9 +85,9 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
             public void afterTextChanged(Editable s) {
                 input = s.toString();
                 if (TextUtils.isEmpty(input)){
-                    deletePhone.setVisibility(View.INVISIBLE);//隐藏清空图标
-
+                    deletePhone.setVisibility(View.GONE);//隐藏清空图标
                     return;
+
                 }else {
                     deletePhone.setVisibility(View.VISIBLE);//显示清空图标
                 }
@@ -139,6 +138,7 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
                 Toast.makeText(context, "验证码输入错误", Toast.LENGTH_LONG).show();
             }else {
                 controlAuth(confirmCode);
+
             }
         }
     }
@@ -179,8 +179,12 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int code = jsonObject.optInt("code");
+                    Object data = jsonObject.optJSONObject("data");
                     String token = jsonObject.optString("appToken");
                     String msg = jsonObject.optString("msg");
+                    if (code == 0){
+                        LoginActivity.this.startActivity(new Intent(LoginActivity.this,BasicMapActivity.class));
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -204,11 +208,14 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
 
             @Override
             public void onResponse(Call call, String response, boolean tokenRefreshd) {
-                Log.d("changa_login","send code "+response);
+                Log.d("huaxian_login","send code "+response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int code = jsonObject.optInt("code");
+                    String data = jsonObject.optString("data");
+                    String msg = jsonObject.optString("msg");
                     if(code == 0){
+                        Toast.makeText(context,msg,Toast.LENGTH_LONG).show();
 
                     }
                 } catch (JSONException e) {
@@ -228,7 +235,8 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
             @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
-                getCode.setBackgroundColor(0xFFCDCDCD);
+
+                getCode.setTextColor(getResources().getColor(R.color.after_send_code));
                 getCode.setText(millisUntilFinished / 1000 + "s"+ "后重新发送");
                 getCode.setClickable(false);// 防止重复点击
             }
@@ -236,7 +244,7 @@ public class LoginActivity extends BaseCompatActivity implements View.OnClickLis
             @Override
             public void onFinish() {
                 // 可以在这做一些操作,如果没有获取到验证码再去请求服务器
-                getCode.setBackgroundColor(0xFF00C3FE);
+                getCode.setTextColor(getResources().getColor(R.color.before_send_code));
                 getCode.setClickable(true);// 防止重复点击
                 getCode.setText("获取验证码");
             }

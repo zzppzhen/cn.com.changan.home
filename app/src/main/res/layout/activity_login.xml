@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".huaxian.Activity.login.LoginActivity">
+    tools:context=".Activity.login.LoginActivity">
     <TextView
         android:id="@+id/jumpToMap"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,12 +23,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="160dp">
         <ImageView
             android:id="@+id/login_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_login_photo"
+            android:src="@drawable/ic_logo_photo"
             android:layout_gravity="center"
             />
         <TextView
@@ -38,8 +38,8 @@
             android:text="@string/accman_title_app"
             android:layout_gravity="center"
             android:textSize="18sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="10dp"/>
+            android:textColor="#323333"
+            android:layout_marginTop="13.23dp"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/accman_phone"
@@ -49,14 +49,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_photo"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp">
+        android:layout_marginTop="93dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="35dp">
         <RelativeLayout
             android:id="@+id/accman_delete"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/accman_input_phone"
@@ -64,30 +63,32 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/accman_tel_number"
                 android:inputType="phone"
-                android:textSize="13sp" />
+                android:textSize="14sp" />
             <ImageView
                 android:id="@+id/accman_delete_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="250dp"
+                android:layout_marginStart="295dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/ic__erro_close"
-                android:visibility="gone" />
+                android:background="@drawable/ic_clean"
+                android:visibility="gone"
+                 />
         </RelativeLayout>
         <TextView
             android:id="@+id/accman_err_phone"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="@string/accman_right_number"
-            android:textSize="10sp"
-            android:textColor="@color/accman_red"
-            android:visibility="gone"/>
+            android:textSize="12sp"
+            android:textColor="#fc2410"
+            android:visibility="gone"
+            />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/accman_code"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/accman_input_code"
@@ -95,8 +96,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/accman_verification_code"
                 android:inputType="number"
-                android:textSize="13sp"
                 android:maxLength="6"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:layout_editor_absoluteX="0dp" />
 
@@ -104,24 +105,24 @@
                 android:id="@+id/accman_get_code"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="212dp"
+                android:layout_marginStart="270dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/accman_get_code"
-                android:textColor="@color/accman_code_blue"
+                android:textColor="#2a82fd"
                 app:layout_constraintRight_toRightOf="parent"
                 android:paddingBottom="10dp"
                 app:layout_constraintTop_toTopOf="@+id/accman_input_code"
                 android:gravity="center"
-                android:textSize="13sp" />
+                android:textSize="14sp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
         <Button
             android:id="@+id/accman_login"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="60dp"
             android:text="@string/accman_login"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
             android:background="@drawable/bg_radius_account_shape_login"
             />
     </LinearLayout>
