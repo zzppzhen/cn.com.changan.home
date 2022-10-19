@@ -292,9 +292,9 @@
 
     <!--android dialog 统一颜色和字体-->
     <color name="dialog_title">#333333</color>
-    <color name="dialog_content">#666666</color>
+    <color name="dialog_content">#919294</color>
     <color name="dialog_btn_ok">#4DB9C2</color>
-    <color name="dialog_btn_cancle">#B3B3B3</color>
+    <color name="dialog_btn_cancle">#323333</color>
     <color name="edit_back">#767680</color>
     <color name="edit_line">#E7E7E7</color>
     <color name="edit_text">#323333</color>
@@ -303,5 +303,8 @@
     <color name="tab_select">#3488FD</color>
     <color name="search_frame">#EDEDEE</color>
     <color name="search_hint_text">#959698</color>
+    <color name="view_line">#e3e6e8</color>
+
+
 
 </resources>

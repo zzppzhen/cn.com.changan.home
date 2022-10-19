@@ -3,12 +3,16 @@ package cn.com.changan.huaxian.Activity.main;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,6 +38,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.changan.huaxian.R;
+import cn.com.changan.huaxian.util.ConfirmCallable;
+import cn.com.changan.huaxian.util.ConfirmUtils;
 
 
 /**
@@ -109,6 +115,13 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 				ivSearchTab.setImageResource(R.mipmap.ic_search_tab_blue);
 				tvSearchTab.setTextColor(getResources().getColor(R.color.tab_select));
 				hideOthersFragment(searchFragment,false);
+				//判断位置服务是否开启
+				LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+				boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+				if (!gps){
+					openSystemGPS();
+				}
+
 				break;
 			case R.id.parking_selector:
 				ivParkingTab.setImageResource(R.mipmap.ic_parking_tab_select);
@@ -118,6 +131,24 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 				hideOthersFragment(parkingFragment,false);
 				break;
 		}
+	}
+
+	private void openSystemGPS() {
+		ConfirmUtils utils = new ConfirmUtils();
+		utils.showConfirmDialog(this, "需要打开系统定位开关", "用于提供精确的定位服务", "取消", "去设置", new ConfirmCallable() {
+			@Override
+			public void unaccept() {
+
+			}
+
+			@Override
+			public void accept() {
+				Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+				startActivity(intent);
+
+			}
+		});
+
 	}
 
 

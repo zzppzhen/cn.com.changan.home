@@ -9,13 +9,13 @@
 
     <TextView
         android:id="@+id/dialog_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dialog_title_margin"
+        android:layout_width="290dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="@dimen/size_24dp"
         android:gravity="center"
         android:text="温馨提示"
         android:textColor="@color/first_class_text"
-        android:textSize="@dimen/dialog_title_size" />
+        android:textSize="@dimen/size_16sp" />
 
 <!--    <View-->
 <!--        android:layout_width="match_parent"-->
@@ -27,30 +27,28 @@
 
     <TextView
         android:id="@+id/dialog_content_one"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dialog_content_tb_margin"
+        android:layout_width="258dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:fadeScrollbars="true"
         android:gravity="center"
         android:lineSpacingExtra="5dp"
-        android:paddingLeft="@dimen/dialog_content_lr_margin"
-        android:paddingRight="@dimen/dialog_content_lr_margin"
+        android:layout_marginStart="@dimen/size_16dp"
+        android:layout_marginEnd="@dimen/size_16dp"
         android:scrollbars="vertical"
-        android:text="长安incall"
+        android:text="滑线车辆"
         android:textColor="@color/dialog_content"
         android:textSize="@dimen/dialog_content_size" />
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="0.8dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="@dimen/dialog_content_tb_margin"
-        android:layout_marginEnd="10dp"
-        android:background="@color/dialog_content" />
+        android:layout_width="@dimen/size_290dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/size_24dp"
+        android:background="@color/view_line" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/size_290dp"
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.Guideline
@@ -62,34 +60,36 @@
 
         <TextView
             android:id="@+id/unacceptbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/dialog_btn_tb_margin"
+            android:layout_width="@dimen/size_64dp"
+            android:layout_height="@dimen/size_32dp"
             android:text="继续退出"
-            android:textColor="@color/not_valuable_text"
+            android:layout_marginTop="7.5dp"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/size_41dp"
+            android:textColor="@color/dialog_btn_cancle"
             android:textSize="@dimen/dialog_btn_cancle_size"
-            app:layout_constraintEnd_toEndOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
             android:id="@+id/acceptbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/dialog_btn_tb_margin"
+            android:layout_width="@dimen/size_48dp"
+            android:layout_height="@dimen/size_32dp"
             android:text="知道了"
+            android:gravity="center"
+            android:layout_marginTop="7.5dp"
+            android:layout_marginStart="47.5dp"
             android:textColor="@color/theme_blue"
             android:textSize="@dimen/dialog_btn_ok_size"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/line"
-            android:layout_width="0.8dp"
-            android:layout_height="25dp"
-            android:background="@color/dialog_content"
+            android:layout_width="0.5dp"
+            android:layout_height="48dp"
+            android:background="@color/view_line"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

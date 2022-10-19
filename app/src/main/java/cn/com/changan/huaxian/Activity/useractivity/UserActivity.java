@@ -72,7 +72,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("TAG", "onClick: 弹出是否退出对话框");
                 openExitDialog();
                 break;
-
         }
     }
 

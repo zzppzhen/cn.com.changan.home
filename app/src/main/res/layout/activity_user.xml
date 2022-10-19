@@ -34,7 +34,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="@dimen/size_16dp"
             android:textSize="@dimen/size_18sp"
-            android:textColor="@color/first_class_text"/>
+            android:textColor="#323333"/>
         
     </androidx.constraintlayout.widget.ConstraintLayout>
     
