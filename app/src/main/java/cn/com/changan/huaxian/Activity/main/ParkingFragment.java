@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -44,6 +46,7 @@ import java.util.ArrayList;
 
 import cn.com.changan.huaxian.Activity.useractivity.UserActivity;
 import cn.com.changan.huaxian.R;
+import cn.com.changan.huaxian.tools.WareHouseListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,6 +82,10 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
     private static final int SEARCH = 1;
     private int type = 0;
     private TextView tvManuallyLocate,tvAutoLocate ;
+
+    //仓库选择
+    private ConstraintLayout goWareHouseBtn;
+    private WareHouseListener listener;
 
     //头像
     private ImageView headImg;
@@ -136,6 +143,8 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
         vinTxt = view.findViewById(R.id.car_vin_code);
         headImg = view.findViewById(R.id.submit_user_head);
         headImg.setOnClickListener(this);
+        goWareHouseBtn = view.findViewById(R.id.choose_warehouse_btn);
+        goWareHouseBtn.setOnClickListener(this);
         return view;
     }
 
@@ -166,6 +175,11 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
             case R.id.submit_user_head:
                 Intent i = new Intent(getContext(), UserActivity.class);
                 getContext().startActivity(i);
+                break;
+            case R.id.choose_warehouse_btn:
+                if(listener!=null){
+                    listener.go2WareHouse();
+                }
                 break;
         }
     }
@@ -323,9 +337,8 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
     }
 
 
-
-
-
-
+    public void setListener(WareHouseListener listener){
+        this.listener = listener;
+    }
 
 }

@@ -16,6 +16,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,6 +33,8 @@ import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.MyLocationStyle;
+import com.example.pickerviewlibrary.picker.TeaPickerView;
+import com.example.pickerviewlibrary.picker.entity.PickerData;
 import com.gyf.immersionbar.ImmersionBar;
 
 import java.util.ArrayList;
@@ -40,6 +43,7 @@ import java.util.List;
 import cn.com.changan.huaxian.R;
 import cn.com.changan.huaxian.util.ConfirmCallable;
 import cn.com.changan.huaxian.util.ConfirmUtils;
+import cn.com.changan.huaxian.tools.WareHouseListener;
 
 
 /**
@@ -66,6 +70,8 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 	private ImageView ivSearchTab;
 	private TextView tvSearchTab;
 
+	private FrameLayout container;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +89,8 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 		searchBtn = findViewById(R.id.searching_selector);
 		parkingBtn.setOnClickListener(this);
 		searchBtn.setOnClickListener(this);
+
+		container = findViewById(R.id.fram_container);
 
 		AMapLocationClient.updatePrivacyShow(this,true,true);
 		AMapLocationClient.updatePrivacyAgree(this,true);
@@ -103,7 +111,40 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 		mFragments.add(searchFragment);
 		hideOthersFragment(searchFragment,true);
 		hideOthersFragment(parkingFragment,true);
+		parkingFragment.setListener(new WareHouseListener() {
+			@Override
+			public void go2WareHouse() {
+				//设置数据有多少层级
+				PickerData data=new PickerData();
+//				data.setFirstDatas(mProvinceDatas);//json: ["广东","江西"]
+//				data.setSecondDatas(mSecondDatas);//json: {"江西":["南昌","赣州"],"广东":["广州","深圳","佛山","东莞"]}
+				List<String> mThirdDatas = new ArrayList<>();
+				mThirdDatas.add("1");
+				data.setFirstDatas(mThirdDatas);//json: {"广州":["天河区","白云区","番禹区","花都区"],"赣州":["章贡区","黄金开发区"],"东莞":["东城","南城"],"深圳":["南山区","宝安区","龙华区"],"佛山":["禅城区","顺德区"],"南昌":["东湖区","青云谱区","青山湖区"]}
+				data.setInitSelectText("请选择");
 
+				TeaPickerView teaPickerView =new TeaPickerView(BasicMapActivity.this,data);
+				teaPickerView
+						.setDiscolourHook(true)
+						.setRadius(25)
+						.setContentLine(true)
+						.setRadius(25)
+						.setHeights(525)
+						.build();
+				teaPickerView.show(container);
+
+				//选择器点击事件
+				teaPickerView.setOnPickerClickListener(pickerData -> {
+					teaPickerView.dismiss();//关闭选择器
+
+				});
+			}
+
+			@Override
+			public void finishWareHouse() {
+
+			}
+		});
 	}
 
 	@Override

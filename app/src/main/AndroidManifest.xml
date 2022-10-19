@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.com.changan.huaxian">
 
+    <uses-sdk tools:overrideLibrary = "com.example.pickerviewlibrary"/>
+
     <meta-data
         android:name="android.max_aspect"
         android:value="2.4" /> <!-- 适配华为（huawei）刘海屏 -->
