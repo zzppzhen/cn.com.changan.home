@@ -4,16 +4,19 @@ import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.LocationManager;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -123,6 +126,12 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         ZXingLibrary.initDisplayOpinion(getContext());
+        //判断位置服务是否开启
+        LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+        boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (!gps){
+            openSystemGPS();
+        }
     }
 
     @Override
@@ -163,6 +172,12 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.tv_auto_locate:
                 //自动定位
+                //判断位置服务是否开启
+                LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+                boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                if (!gps){
+                    openSystemGPS();
+                }
                 tvAutoLocate.setBackgroundResource(R.drawable.bg_locate_blue);
                 tvAutoLocate.setTextColor(getResources().getColor(R.color.white));
                 tvManuallyLocate.setBackgroundResource(R.color.white);
@@ -184,6 +199,23 @@ public class ParkingFragment extends Fragment implements View.OnClickListener{
                 }
                 break;
         }
+    }
+
+    private void openSystemGPS() {
+        ConfirmUtils utils = new ConfirmUtils();
+        utils.showConfirmDialog(getContext(), "需要打开系统定位开关", "用于提供精确的定位服务", "手动定位", "去设置", new ConfirmCallable() {
+            @Override
+            public void unaccept() {
+
+            }
+
+            @Override
+            public void accept() {
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+
+            }
+        });
     }
 
     //动态请求权限

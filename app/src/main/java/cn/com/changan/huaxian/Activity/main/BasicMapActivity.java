@@ -157,7 +157,7 @@ public class BasicMapActivity extends FragmentActivity implements OnClickListene
 				tvSearchTab.setTextColor(getResources().getColor(R.color.tab_select));
 				hideOthersFragment(searchFragment,false);
 				//判断位置服务是否开启
-				LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+				LocationManager locationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
 				boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 				if (!gps){
 					openSystemGPS();

@@ -45,14 +45,14 @@
         app:layout_constraintTop_toBottomOf="@+id/user_container"
         android:layout_marginTop="@dimen/size_8dp"
         android:background="@color/bg_default">
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="我停放的车"
-            android:textColor="@color/first_class_text"
             android:layout_gravity="left"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="我停放的车"
+            android:textColor="@color/first_class_text" />
         
         <ImageView
             android:layout_width="@dimen/size_5dp"
