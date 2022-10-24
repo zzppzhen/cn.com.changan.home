@@ -2,7 +2,7 @@ package cn.com.changan.huaxian.http;
 
 public class ProjectConfig {
     public static String SERVER_TEST = "https://tspdemo.changan.com.cn";
-    public static String SERVER_PRE = "https://iov.changan.com.cn";
+    public static String SERVER_PRE = "https://preprod.changan.com.cn";
     public static String SERVER_PROD = "https://iov.changan.com.cn";
 
 //    public static String BASE_URL = "https://pre-m.iov.changan.com.cn";
@@ -52,7 +52,6 @@ public class ProjectConfig {
 
 
     /***************** 业务接口 end *****************/
-
 
     public static class AccessSource {
         public static final String HEADER_NAME = "vcs-app-id";

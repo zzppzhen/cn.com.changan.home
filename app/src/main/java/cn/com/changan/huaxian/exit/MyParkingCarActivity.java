@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,6 +41,8 @@ public class MyParkingCarActivity extends AppCompatActivity {
     private List<MyParkingCarEntity> carEntityList = new ArrayList<>();
     private List<DateEntity> dateList = new ArrayList<>();
 
+    private ImageView backButton;
+
     private RefreshLayout refreshLayout;
 
     @Override
@@ -52,6 +56,14 @@ public class MyParkingCarActivity extends AppCompatActivity {
         mParkingAdapter = new DateAdapter(dateList);
         mParkingCarList.setAdapter(mParkingAdapter);
         mParkingCarList.setLayoutManager(new LinearLayoutManager(this));
+        //返回
+        backButton= findViewById(R.id.login_back_btn);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         //拉到底部刷新接口获取数据
         refreshLayout = findViewById(R.id.refresh_layout);
         refreshLayout.setRefreshHeader(new ClassicsHeader(this));
